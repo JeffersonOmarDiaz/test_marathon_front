@@ -1,0 +1,54 @@
+<div class="row mt-5">
+    <div class="col-lg-5 offset-lg-4">
+        <div class="card border-danger mb-3" style="max-width: 40rem;">
+          <div class="card-header text-center">Agregar Empleado</div>
+          <div class="card-body">
+            <form [formGroup]="formEmployee" (ngSubmit)="addEmployee()">
+                <input formControlName="created_byC" type="text" class="form-control mt-2" placeholder="Tu nombre">
+                <span *ngIf="formEmployee.get('created_byC')?.hasError('required') && formEmployee.get('created_byC')?.touched">
+                    Campo creado por es obligatorio
+                </span>
+
+
+                <input formControlName="nameC" type="text" class="form-control mt-2" placeholder="Nombre Empleado">
+                <span *ngIf="formEmployee.get('nameC')?.hasError('required') && formEmployee.get('nameC')?.touched">
+                    Campo nombre de empleado es obligatorio
+                </span>
+
+                <input formControlName="surnameC" type="text" class="form-control mt-2" placeholder="Apellido">
+                <span *ngIf="formEmployee.get('surnameC')?.hasError('required') && formEmployee.get('surnameC')?.touched">
+                    Campo apellido obligatorio
+                </span>
+
+                <input formControlName="ageC" type="number" class="form-control mt-2" placeholder="Edad">
+                <span *ngIf="formEmployee.get('ageC')?.hasError('required') && formEmployee.get('ageC')?.touched">
+                    Campo edad es obligatorio
+                </span>
+
+                <input formControlName="emailC" type="text" class="form-control mt-2" placeholder="Email">
+                <span *ngIf="formEmployee.get('emailC')?.hasError('required') && formEmployee.get('emailC')?.touched">
+                    Campo email es obligatorio
+                </span>
+
+                <input formControlName="employee_positionC" type="text" class="form-control mt-2" placeholder="Posición">
+                <span *ngIf="formEmployee.get('employee_positionC')?.hasError('required') && formEmployee.get('employee_positionC')?.touched">
+                    Campo Posición es Obligatoria
+                </span>
+
+                <div class="row mt-2 text-center">
+                    <div class="col-lg-6">
+                        <button [disabled]="formEmployee.invalid" type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button routerLink="/see_employees" type="button" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+
+          </div>
+        </div>
+
+    </div>
+</div>
+    
+  

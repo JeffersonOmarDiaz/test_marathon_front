@@ -1,0 +1,40 @@
+<div class="row mt-5">
+    <div class="col-lg-5 offset-lg-4">
+        <div class="card border-danger mb-3" style="max-width: 40rem;">
+          <div class="card-header text-center">Editar Empresa</div>
+          <div class="card-body">
+            <form [formGroup]="formEditEmpresa" (ngSubmit)="editEnterprise()">
+                <input formControlName="modified_byU" type="text" class="form-control mt-2" placeholder="Tu nombre">
+                <span *ngIf="formEditEmpresa.get('modified_byU')?.hasError('required') && formEditEmpresa.get('modified_byU')?.touched">
+                    Campo obligatorio
+                </span>
+
+                <input formControlName="statusU" type="text" class="form-control mt-2" placeholder="Estado">
+                <span *ngIf="formEditEmpresa.get('statusU')?.hasError('required') && formEditEmpresa.get('statusU')?.touched">
+                    Campo estado de empresa es obligatorio
+                </span>
+                <input formControlName="nameU" type="text" class="form-control mt-2" placeholder="Nuevo Nombre De Empresa">
+                <span *ngIf="formEditEmpresa.get('nameU')?.hasError('required') && formEditEmpresa.get('nameU')?.touched">
+                    Campo nombre de empresa es obligatorio
+                </span>
+                <input formControlName="phoneU" type="text" class="form-control mt-2" placeholder="Teléfono">
+                <span *ngIf="formEditEmpresa.get('phoneU')?.hasError('required') && formEditEmpresa.get('phoneU')?.touched">
+                    Campo teléfono por es obligatorio
+                </span>
+                <div class="row mt-2 text-center">
+                    <div class="col-lg-6">
+                        <button [disabled]="formEditEmpresa.invalid" type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button routerLink="/see_enterprise" type="button" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+
+          </div>
+        </div>
+
+    </div>
+</div>
+    
+  

@@ -13,6 +13,14 @@ import { CEnterpriseComponent } from './components/c-enterprise/c-enterprise.com
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SeeEnterprisesComponent } from './modules/see-enterprises/see-enterprises.component';
 import { AddEnterpriseComponent } from './modules/add-enterprise/add-enterprise.component';
+import { EEnterpriseComponent } from './components/e-enterprise/e-enterprise.component';
+import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { SeeEmployeesComponent } from './modules/see-employees/see-employees.component';
+import { EEmployeesComponent } from './modules/e-employees/e-employees.component';
+import { AddEmployeesComponent } from './modules/add-employees/add-employees.component';
+import { EmployeesListComponent } from './components/employees-list/employees-list.component';
+import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
+import { NewEmployeeComponent } from './components/new-employee/new-employee.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,15 @@ import { AddEnterpriseComponent } from './modules/add-enterprise/add-enterprise.
     CEnterpriseComponent,
     NavbarComponent,
     SeeEnterprisesComponent,
-    AddEnterpriseComponent
+    AddEnterpriseComponent,
+    EEnterpriseComponent,
+    ProgressBarComponent,
+    SeeEmployeesComponent,
+    EEmployeesComponent,
+    AddEmployeesComponent,
+    EmployeesListComponent,
+    EditEmployeeComponent,
+    NewEmployeeComponent
   ],
   imports: [
     BrowserModule, 

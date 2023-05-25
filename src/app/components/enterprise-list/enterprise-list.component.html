@@ -1,29 +1,32 @@
-<div style="margin-top: 15px; display:flex; justify-content:space-between">
-    
-    <h1>Lista de empresas</h1>
-    <button  routerLink="/add_enterprice" type="button" class="btn btn-info">AGREGAR</button>
-</div>
-
-<table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Teléfono</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Creado Por</th>
-        <th scope="col">Fecha Creación</th>
-      </tr>
-    </thead>
-    <tbody>
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading">
+  <div style="margin-top: 15px; display:flex; justify-content:space-between">
       
-      <tr class="table-secondary" *ngFor="let empresa of listEmpresas">
-        <th scope="row">{{empresa.name}}</th>
-        <td>{{empresa.phone}}</td>
-        <td>{{empresa.status}}</td>
-        <td>{{empresa.created_by}}</td>
-        <td>{{empresa.created_date}}</td>
-        <td><button type="button" class="btn btn-success btn-sm">Editar</button></td>
-      </tr>
-      
-    </tbody>
-  </table>
+      <h1>Lista de empresas</h1>
+      <button  routerLink="/add_enterprice" type="button" class="btn btn-info">AGREGAR</button>
+  </div>
+  
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Creado Por</th>
+          <th scope="col">Fecha Creación</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr class="table-secondary" *ngFor="let empresa of listEmpresas">
+          <th scope="row">{{empresa.name}}</th>
+          <td>{{empresa.phone}}</td>
+          <td>{{empresa.status}}</td>
+          <td>{{empresa.created_by}}</td>
+          <td>{{empresa.created_date}}</td>
+          <td><button type="button" class="btn btn-success btn-sm" routerLink="/edit_enterprice/{{empresa.id_enterprises}}">Editar</button></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>

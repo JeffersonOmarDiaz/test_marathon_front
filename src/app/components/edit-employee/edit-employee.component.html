@@ -1,0 +1,56 @@
+<div class="row mt-5">
+    <div class="col-lg-5 offset-lg-4">
+        <div class="card border-danger mb-3" style="max-width: 40rem;">
+          <div class="card-header text-center">Editar Empleado</div>
+          <div class="card-body">
+            <form [formGroup]="formEditEmployee" (ngSubmit)="editEmployee()">
+                <input formControlName="modified_byU" type="text" class="form-control mt-2" placeholder="Editado por">
+                <span *ngIf="formEditEmployee.get('modified_byU')?.hasError('required') && formEditEmployee.get('modified_byU')?.touched">
+                    Campo obligatorio
+                </span>
+
+                <input formControlName="status_employeU" type="text" class="form-control mt-2" placeholder="Estado">
+                <span *ngIf="formEditEmployee.get('status_employeU')?.hasError('required') && formEditEmployee.get('status_employeU')?.touched">
+                    Campo estado de empresa es obligatorio
+                </span>
+                <input formControlName="nameU" type="text" class="form-control mt-2" placeholder="Nombre">
+                <span *ngIf="formEditEmployee.get('nameU')?.hasError('required') && formEditEmployee.get('nameU')?.touched">
+                    Campo nombre de empresa es obligatorio
+                </span>
+
+                <input formControlName="surnameU" type="text" class="form-control mt-2" placeholder="Apellido">
+                <span *ngIf="formEditEmployee.get('surnameU')?.hasError('required') && formEditEmployee.get('surnameU')?.touched">
+                    Campo nombre de empresa es obligatorio
+                </span>
+
+                <input formControlName="ageU" type="number" class="form-control mt-2" placeholder="Edad">
+                <span *ngIf="formEditEmployee.get('ageU')?.hasError('required') && formEditEmployee.get('ageU')?.touched">
+                    Campo teléfono por es obligatorio
+                </span>
+
+                <input formControlName="emailU" type="email" class="form-control mt-2" placeholder="Email">
+                <span *ngIf="formEditEmployee.get('emailU')?.hasError('required') && formEditEmployee.get('emailU')?.touched">
+                    Campo teléfono por es obligatorio
+                </span>
+
+                <input formControlName="employee_positionU" type="text" class="form-control mt-2" placeholder="Posición">
+                <span *ngIf="formEditEmployee.get('employee_positionU')?.hasError('required') && formEditEmployee.get('employee_positionU')?.touched">
+                    Campo teléfono por es obligatorio
+                </span>
+                <div class="row mt-2 text-center">
+                    <div class="col-lg-6">
+                        <button [disabled]="formEditEmployee.invalid" type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button routerLink="/see_employees" type="button" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+
+          </div>
+        </div>
+
+    </div>
+</div>
+    
+  
