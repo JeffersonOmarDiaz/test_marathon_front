@@ -8,6 +8,7 @@ import { AddEmployeesComponent } from './modules/add-employees/add-employees.com
 import { EEmployeesComponent } from './modules/e-employees/e-employees.component';
 import { CDepartmentComponent } from './components/c-department/c-department.component';
 import { DepartmentsListComponent } from './modules/departments-list/departments-list.component';
+import { EditDepartmentComponent } from './modules/edit-department/edit-department.component';
 
 const routes: Routes = [
   // Define tus rutas aquí
@@ -22,6 +23,7 @@ const routes: Routes = [
 
   {path: 'add_department', component: CDepartmentComponent},
   {path: 'see_department', component: DepartmentsListComponent},
+  {path: 'edit_department/:id', component: EditDepartmentComponent},
 
   {path:'**', redirectTo:'see_enterprise', pathMatch:'full'}
 ];

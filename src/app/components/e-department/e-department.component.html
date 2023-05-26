@@ -1,1 +1,63 @@
-<p>e-department works!</p>
+<div class="row mt-5">
+    <div class="col-lg-5 offset-lg-4">
+        <div class="card border-danger mb-3" style="max-width: 40rem;">
+          <div class="card-header text-center">Editar departamento</div>
+          <div class="card-body">
+              <p *ngIf="ultimaActualizacionPor" style="text-align: end;">Ultima actualización por: {{this.ultimaActualizacionPor}}</p>
+              <p *ngIf="fechaUltimaActualizacion" style="text-align: end;">fecha última actualización: {{this.fechaUltimaActualizacion}}</p>
+              <form [formGroup]="formEditDepartment" (ngSubmit)="editDepartment()">
+                <input formControlName="modified_byU" type="text" class="form-control mt-2" placeholder="Tu nombre">
+                <span *ngIf="formEditDepartment.get('modified_byU')?.hasError('required') && formEditDepartment.get('modified_byU')?.touched">
+                    Campo obligatorio
+                </span>
+
+                <input formControlName="status_depU" type="text" class="form-control mt-2" placeholder="Estado">
+                <span *ngIf="formEditDepartment.get('status_depU')?.hasError('required') && formEditDepartment.get('status_depU')?.touched">
+                    Campo estado de empresa es obligatorio
+                </span>
+                <input formControlName="nameU" type="text" class="form-control mt-2" placeholder="Nuevo Nombre Del Departamento">
+                <span *ngIf="formEditDepartment.get('nameU')?.hasError('required') && formEditDepartment.get('nameU')?.touched">
+                    Campo nombre de empresa es obligatorio
+                </span>
+                <input formControlName="descriptionU" type="text" class="form-control mt-2" placeholder="Descripción del departament">
+                <span *ngIf="formEditDepartment.get('descriptionU')?.hasError('required') && formEditDepartment.get('descriptionU')?.touched">
+                    Campo nombre de empresa es obligatorio
+                </span>
+                <input formControlName="phoneU" type="text" class="form-control mt-2" placeholder="Teléfono">
+                <span *ngIf="formEditDepartment.get('phoneU')?.hasError('required') && formEditDepartment.get('phoneU')?.touched">
+                    Campo teléfono por es obligatorio
+                </span>
+
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-1">Select Enterprise</label>
+                    <select class="form-select" id="exampleSelect1" formControlName="id_enterprisesU">
+                        <option *ngFor="let empresa of listEmpresas" value={{empresa.id_enterprises}}>{{empresa.name}}</option>
+                    </select>
+                </div>
+
+                <div class="row mt-2 text-center">
+                    <div class="col-lg-6">
+                        <button [disabled]="formEditDepartment.invalid" type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button routerLink="/see_department" type="button" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+
+          </div>
+        </div>
+
+    </div>
+    <div class="alert alert-dismissible alert-success"  *ngIf="exitoso">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Realizado!</strong>  Se ha guardado de forma correcta.
+      </div>
+
+      <div class="alert alert-dismissible alert-danger" *ngIf="fallido">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="this.fallido=false"></button>
+        <strong>Error!</strong> Existió un error.
+      </div>
+</div>
+    
+  

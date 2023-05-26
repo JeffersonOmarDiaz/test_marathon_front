@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { NewDepartment } from '../interfaces/department';
+import { EditDeparment, NewDepartment } from '../interfaces/department';
 
 
 @Injectable({
@@ -21,7 +21,15 @@ export class DepartmentService {
     return this.http.get(this.myAppUrl +'/'+ this.myApiUrl + '/g_all_departments');
    }
 
+   getDeparmentDetails(id:number){
+    return this.http.get(this.myAppUrl +'/'+ this.myApiUrl + '/g_departments_details/'+ id);
+   }
+
    addDepartment(department: NewDepartment){
     return this.http.post(this.myAppUrl+'/'+this.myApiUrl+ '/i_department', department);
+   }
+
+   editDepartment(id:number, editDeparment: EditDeparment){
+    return this.http.put(this.myAppUrl+'/'+this.myApiUrl+'/u_department/'+id,editDeparment);
    }
 }

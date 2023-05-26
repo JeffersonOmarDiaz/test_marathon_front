@@ -76,7 +76,7 @@ export class EEnterpriseComponent implements OnInit {
             }
 
             else if (+valor[0]["lastid"] > 0) {
-              console.log('El header fue creado de forma correcta', res);
+              console.log('Empresa actualizada de forma correcta', res);
               console.log("El header ==> Se actualizó con exito con el id: " + +valor[0]["lastid"]);
               let id_Header_DOA = Number(valor[0]["lastid"]);
             }

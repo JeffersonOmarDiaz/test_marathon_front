@@ -5,3 +5,12 @@ export interface NewDepartment{
     phoneC:string,
     id_enterprisesC: number
 }
+
+export interface EditDeparment{
+    modified_byU:String,
+    status_depU:String,
+    descriptionU:String,
+    nameU:String,
+    phoneU:String,
+    id_enterprisesU: number
+}

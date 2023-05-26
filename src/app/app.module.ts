@@ -26,6 +26,7 @@ import { CDepartmentComponent } from './components/c-department/c-department.com
 import { EDepartmentComponent } from './components/e-department/e-department.component';
 import { AddDepartmentComponent } from './modules/add-department/add-department.component';
 import { DepartmentsListComponent } from './modules/departments-list/departments-list.component';
+import { EditDepartmentComponent } from './modules/edit-department/edit-department.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { DepartmentsListComponent } from './modules/departments-list/departments
     CDepartmentComponent,
     EDepartmentComponent,
     AddDepartmentComponent,
-    DepartmentsListComponent
+    DepartmentsListComponent,
+    EditDepartmentComponent
   ],
   imports: [
     BrowserModule, 
