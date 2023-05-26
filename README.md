@@ -2,7 +2,7 @@
 La parte visual de marathon esta realizada en Angular 14
 
 
-###Evaluación
+### Evaluación
 #### 1. Crear una pantalla que permita visualizar empresas. 
 
 ![image](https://github.com/JeffersonOmarDiaz/test_marathon_front/assets/32933851/93cb1476-07d5-4204-be5d-a1cff3afd1d0)
@@ -32,5 +32,19 @@ La parte visual de marathon esta realizada en Angular 14
 ![image](https://github.com/JeffersonOmarDiaz/test_marathon_front/assets/32933851/d182f1c2-0eee-405c-a9db-a0c3aebad1bc)
 
 #### 10. Cree una guía de instalación para poner en producción la aplicación
-#### 11. Código fuente para revisión. 
-#### 12. Acceso al repositorio de versionado de código. 
+| Herramienta      | Versión | comando/fuente |
+| ------------- | ----------:| ------------- |
+| Nodejs  | 16.15.1 |[NodeJs](https://nodejs.org/es/download) |
+| Angular     |   14.2.11 |npm install -g @angular/14.2.11|
+
+### Clonar el proyecto y aplicar el comando
+| npm install |
+| ----------- |
+### configuración del proyecto
+- Cambiar las variables de entorno en el archivo [environment.prod.ts](https://github.com/JeffersonOmarDiaz/test_marathon_front/blob/main/src/environments/environment.prod.ts) en donde se requiere la url del backend, es similar al archivo environment.ts
+-  Abrir una terminal en la raíz del proyecto y ejecutar el  comando:
+|  ng build --prod |
+| ---------------- |
+- Este comando compilará el proyecto en modo producción y generará los archivos en una nueva carpeta dist/
+- Copiar el contenido de la carpeta dist  en la carpeta de documentos de Apache (htdocs o var/www/html, dependiendo de la configuración) en el servidor [netlify](https://www.netlify.com/) se debe copiar toda la carpeta dist/
+
