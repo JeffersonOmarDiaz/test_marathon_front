@@ -1,0 +1,56 @@
+<div class="row mt-5">
+    <div class="col-lg-5 offset-lg-4">
+        <div class="card border-danger mb-3" style="max-width: 40rem;">
+          <div class="card-header text-center">Agregar Departamento</div>
+          <div class="card-body">
+            <form [formGroup]="formDepartment" (ngSubmit)="addDepartment()">
+                <input formControlName="created_byC" type="text" class="form-control mt-2" placeholder="Tu nombre">
+                <span *ngIf="formDepartment.get('created_byC')?.hasError('required') && formDepartment.get('created_byC')?.touched">
+                    Campo creado por es obligatorio
+                </span>
+
+
+                <input formControlName="nameC" type="text" class="form-control mt-2" placeholder="Nombre departamento">
+                <span *ngIf="formDepartment.get('nameC')?.hasError('required') && formDepartment.get('nameC')?.touched">
+                    Campo nombre de departamento es obligatorio
+                </span>
+
+                <input formControlName="descriptionC" type="text" class="form-control mt-2" placeholder="descripción">
+                <span *ngIf="formDepartment.get('descriptionC')?.hasError('required') && formDepartment.get('descriptionC')?.touched">
+                    Campo descripción obligatorio
+                </span>
+
+                <input formControlName="phoneC" type="text" class="form-control mt-2" placeholder="Teléfono">
+                <span *ngIf="formDepartment.get('phoneC')?.hasError('required') && formDepartment.get('phoneC')?.touched">
+                    Campo teléfono es obligatorio
+                </span>
+<!-- 
+                <input formControlName="id_enterprisesC" type="number" class="form-control mt-2" placeholder="Empresa">
+                <span *ngIf="formDepartment.get('id_enterprisesC')?.hasError('required') && formDepartment.get('id_enterprisesC')?.touched">
+                    Campo empresa es obligatorio
+                </span> -->
+
+
+            <div class="form-group">
+                <label for="exampleSelect1" class="form-label mt-1">Example select</label>
+                <select class="form-select" id="exampleSelect1" formControlName="id_enterprisesC">
+                    <option *ngFor="let empresa of listEmpresas" value={{empresa.id_enterprises}}>{{empresa.name}}</option>
+                </select>
+            </div>
+
+                <div class="row mt-2 text-center">
+                    <div class="col-lg-6">
+                        <button [disabled]="formDepartment.invalid" type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button routerLink="/see_department" type="button" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+
+    </div>
+</div>
+    
+  

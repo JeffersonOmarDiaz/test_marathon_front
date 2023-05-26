@@ -21,6 +21,11 @@ import { AddEmployeesComponent } from './modules/add-employees/add-employees.com
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 import { NewEmployeeComponent } from './components/new-employee/new-employee.component';
+import { SeeDepartmentsComponent } from './components/see-departments/see-departments.component';
+import { CDepartmentComponent } from './components/c-department/c-department.component';
+import { EDepartmentComponent } from './components/e-department/e-department.component';
+import { AddDepartmentComponent } from './modules/add-department/add-department.component';
+import { DepartmentsListComponent } from './modules/departments-list/departments-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,12 @@ import { NewEmployeeComponent } from './components/new-employee/new-employee.com
     AddEmployeesComponent,
     EmployeesListComponent,
     EditEmployeeComponent,
-    NewEmployeeComponent
+    NewEmployeeComponent,
+    SeeDepartmentsComponent,
+    CDepartmentComponent,
+    EDepartmentComponent,
+    AddDepartmentComponent,
+    DepartmentsListComponent
   ],
   imports: [
     BrowserModule, 
