@@ -2,7 +2,7 @@
 La parte visual de marathon esta realizada en Angular 14
 
 
-### Evaluación
+### Resultados
 #### 1. Crear una pantalla que permita visualizar empresas. 
 
 ![image](https://github.com/JeffersonOmarDiaz/test_marathon_front/assets/32933851/93cb1476-07d5-4204-be5d-a1cff3afd1d0)
@@ -40,11 +40,10 @@ La parte visual de marathon esta realizada en Angular 14
 ### Clonar el proyecto y aplicar el comando
 | npm install |
 | ----------- |
-### configuración del proyecto
+### configuración del proyecto (El servidor ya debe estar configurado)
 - Cambiar las variables de entorno en el archivo [environment.prod.ts](https://github.com/JeffersonOmarDiaz/test_marathon_front/blob/main/src/environments/environment.prod.ts) en donde se requiere la url del backend, es similar al archivo environment.ts
 -  Abrir una terminal en la raíz del proyecto y ejecutar el  comando:
-|  ng build --prod |
-| ---------------- |
-- Este comando compilará el proyecto en modo producción y generará los archivos en una nueva carpeta dist/
-- Copiar el contenido de la carpeta dist  en la carpeta de documentos de Apache (htdocs o var/www/html, dependiendo de la configuración) en el servidor [netlify](https://www.netlify.com/) se debe copiar toda la carpeta dist/
+##### ng build --prod
+ Este comando compilará el proyecto en modo producción y generará los archivos en una nueva carpeta dist/
+- Copiar el contenido de la carpeta dist  en la carpeta de documentos de Apache (htdocs o var/www/html, dependiendo de la configuración) en el servidor [netlify](https://www.netlify.com/) se debe copiar toda la carpeta dist/ 
 
