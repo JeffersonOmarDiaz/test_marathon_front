@@ -17,6 +17,9 @@ export class DepartmentService {
     this.myApiUrl = 'api/department';
    }
 
+   getAllDepartments(){
+    return this.http.get(this.myAppUrl +'/'+ this.myApiUrl + '/g_all_departments');
+   }
 
    addDepartment(department: NewDepartment){
     return this.http.post(this.myAppUrl+'/'+this.myApiUrl+ '/i_department', department);

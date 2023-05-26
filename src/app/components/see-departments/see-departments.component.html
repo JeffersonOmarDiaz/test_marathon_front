@@ -1,1 +1,32 @@
-<p>see-departments works!</p>
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading">
+  <div style="margin-top: 15px; display:flex; justify-content:space-between">
+      
+      <h1>Lista de departamentos</h1>
+      <button  routerLink="/add_department" type="button" class="btn btn-info">AGREGAR</button>
+  </div>
+  
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Departamento</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Empresa</th>
+          <th scope="col">Creado por</th>
+          <th scope="col">Fecha Creación</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr class="table-secondary" *ngFor="let department of listDepartmen">
+          <th scope="row">{{department.name}} {{department.surname}}</th>
+          <td>{{department.description}}</td>
+          <td>{{department.enterpriseName}}</td>
+          <td>{{department.created_by}}</td>
+          <td>{{department.created_date}}</td>
+          <td><button type="button" class="btn btn-success btn-sm" routerLink="/edit_department/{{department.id_departament}}">Editar</button></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
