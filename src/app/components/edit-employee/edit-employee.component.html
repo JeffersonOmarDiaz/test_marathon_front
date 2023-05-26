@@ -3,6 +3,8 @@
         <div class="card border-danger mb-3" style="max-width: 40rem;">
           <div class="card-header text-center">Editar Empleado</div>
           <div class="card-body">
+            <p *ngIf="ultimaActualizacionPor" style="text-align: end;">Ultima actualización por: {{this.ultimaActualizacionPor}}</p>
+              <p *ngIf="fechaUltimaActualizacion" style="text-align: end;">fecha última actualización: {{this.fechaUltimaActualizacion}}</p>
             <form [formGroup]="formEditEmployee" (ngSubmit)="editEmployee()">
                 <input formControlName="modified_byU" type="text" class="form-control mt-2" placeholder="Editado por">
                 <span *ngIf="formEditEmployee.get('modified_byU')?.hasError('required') && formEditEmployee.get('modified_byU')?.touched">
@@ -50,6 +52,15 @@
           </div>
         </div>
 
+        <div class="alert alert-dismissible alert-success"  *ngIf="exitoso">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Realizado!</strong>  Se ha guardado de forma correcta.
+          </div>
+    
+          <div class="alert alert-dismissible alert-danger" *ngIf="fallido">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="this.fallido=false"></button>
+            <strong>Error!</strong> Existió un error.
+          </div>
     </div>
 </div>
     

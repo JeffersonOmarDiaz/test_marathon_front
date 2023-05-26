@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UpEmployee } from 'src/app/interfaces/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -13,10 +13,15 @@ export class EditEmployeeComponent implements OnInit {
   formEditEmployee: FormGroup;
   id: number;
   valuesGet: any=[];
+  exitoso= false;
+  fallido = false;
+  ultimaActualizacionPor = "";
+  fechaUltimaActualizacion ="";
+
   constructor(private fb: FormBuilder,
               private aRouter: ActivatedRoute,
-              private employeeService: EmployeeService
-              ) 
+              private employeeService: EmployeeService,
+              private router: Router) 
               { 
                 this.formEditEmployee = this.fb.group({
                           modified_byU: ['', Validators.required],
@@ -45,7 +50,8 @@ export class EditEmployeeComponent implements OnInit {
         inter = Object(this.valuesGet)
         console.log(inter[0]);
         
-        
+        this.ultimaActualizacionPor = inter[0].modified_by;
+        this.fechaUltimaActualizacion = inter[0].modified_date;
         
         this.formEditEmployee = this.fb.group({
           modified_byU: ['', Validators.required],
@@ -80,16 +86,29 @@ export class EditEmployeeComponent implements OnInit {
             lastid = valor[0]["lastid"];
             if (lastid.toString() === "Error sql") {
               console.log("Existio un error en BD");
+              setTimeout(() => {
+                this.fallido = false;
+              }, 4000);
+              this.fallido = true;
             }
 
             else if (lastid.toString() === "WARNING sql") {
               console.log("Existio un error en BD " + lastid.toString());
+              setTimeout(() => {
+                this.fallido = false;
+              }, 4000);
+              this.fallido = true;
             }
 
             else if (+valor[0]["lastid"] > 0) {
               console.log('El header fue creado de forma correcta', res);
               console.log("El header ==> Se actualizó con exito con el id: " + +valor[0]["lastid"]);
               let id_Header_DOA = Number(valor[0]["lastid"]);
+              setTimeout(() => {
+                this.exitoso = false;
+                this.router.navigate(['/see_employees']);
+              }, 1500);
+              this.exitoso = true;
             }
       }
     );

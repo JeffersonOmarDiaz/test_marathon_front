@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NewEmployee } from 'src/app/interfaces/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -11,8 +12,11 @@ import { EmployeeService } from 'src/app/services/employee.service';
 export class NewEmployeeComponent implements OnInit {
 
   formEmployee: FormGroup;
+  exitoso= false;
+  fallido = false;
   constructor(private fb: FormBuilder,
-              private employeeService:EmployeeService) 
+              private employeeService:EmployeeService,
+              private router: Router) 
   { 
     this.formEmployee = this.fb.group({
                             created_byC: ['', Validators.required],
@@ -45,16 +49,29 @@ export class NewEmployeeComponent implements OnInit {
             lastid = valor[0]["lastid"];
             if (lastid.toString() === "Error sql") {
               console.log("Existio un error en BD");
+              setTimeout(() => {
+                this.fallido = false;
+              }, 4000);
+              this.fallido = true;
             }
 
             else if (lastid.toString() === "WARNING sql") {
               console.log("Existio un error en BD " + lastid.toString());
+              setTimeout(() => {
+                this.fallido = false;
+              }, 4000);
+              this.fallido = true;
             }
 
             else if (+valor[0]["lastid"] > 0) {
               console.log('El empleado fue creado de forma correcta', res);
               console.log("El header ==> Se registro con exito con el id: " + +valor[0]["lastid"]);
               let id_Header_DOA = Number(valor[0]["lastid"]);
+              setTimeout(() => {
+                this.exitoso = false;
+                this.router.navigate(['/see_employees']);
+              }, 1500);
+              this.exitoso = true;
             }
       }
       

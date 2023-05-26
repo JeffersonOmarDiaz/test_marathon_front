@@ -32,7 +32,7 @@
 
 
             <div class="form-group">
-                <label for="exampleSelect1" class="form-label mt-1">Example select</label>
+                <label for="exampleSelect1" class="form-label mt-1">Seleccion un departamento</label>
                 <select class="form-select" id="exampleSelect1" formControlName="id_enterprisesC">
                     <option *ngFor="let empresa of listEmpresas" value={{empresa.id_enterprises}}>{{empresa.name}}</option>
                 </select>
@@ -49,8 +49,16 @@
             </form>
           </div>
         </div>
-
     </div>
+    <div class="alert alert-dismissible alert-success"  *ngIf="exitoso">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Realizado!</strong>  Se ha guardado de forma correcta.
+      </div>
+
+      <div class="alert alert-dismissible alert-danger" *ngIf="fallido">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" (click)="this.fallido=false"></button>
+        <strong>Error!</strong> Existió un error.
+      </div>
 </div>
     
   
